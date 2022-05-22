@@ -42,7 +42,7 @@ function Slots() {
 			> 10</span>
 
 			<motion.div ref={ref} variants={container} initial="initial" animate={control} className='relative'>
-				<motion.h2 variants={headingVariant} className='text-4xl md:text-5xl font-bold text-center mb-5'>Plan your slots</motion.h2>
+				<motion.h2 variants={headingVariant} className='mt-10 text-4xl md:text-5xl font-bold text-center mb-5'>Plan your slots</motion.h2>
 
 				<div className='flex flex-col md:flex-row items-center justify-center md:justify-around space-x-3 my-10 md:my-14 mx-10'>
 					<motion.div className='flex items-center justify-center' variants={leftImgVariant}>

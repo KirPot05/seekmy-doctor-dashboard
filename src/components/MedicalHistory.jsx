@@ -1,7 +1,7 @@
 import pat1 from '../assets/pat1.png';
 import pat2 from '../assets/pat2.png';
 import { motion, useAnimation } from 'framer-motion';
-import { container, descVariant, downUpImg, headingVariant, leftImgVariant, leftInText } from '../animations';
+import { container, descVariant, downUpImg, headingVariant, imgVariant, leftImgVariant, leftInText } from '../animations';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 
@@ -43,7 +43,7 @@ function MedicalHistory() {
                         <motion.p variants={leftInText} className='text-xl text-center md:text-3xl'>Faster digital prescriptions</motion.p>
                         <motion.p variants={leftInText} className='text-xl text-center md:text-3xl font-bold'>No pen. No paper</motion.p>
                     </div>
-                    <motion.img variants={leftImgVariant} className='object-contain mt-5' src={pat2} alt="" style={{ height: dimensions.height }} />
+                    <motion.img variants={imgVariant} className='object-contain mt-5' src={pat2} alt="" style={{ height: dimensions.height }} />
                 </div>
             </div>
         </motion.div>

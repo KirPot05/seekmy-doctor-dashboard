@@ -24,8 +24,8 @@ export const descVariant = {
 }
 
 export const imgVariant = {
-    initial: {opacity: 0, x: -50},
-    animate: {opacity: 1, x: 0, transition: {duration: 1}}
+    initial: {opacity: 0, x: 0},
+    animate: {opacity: 1, x: -40, transition: {duration: 1}}
 }
 
 export const leftImgVariant = {
