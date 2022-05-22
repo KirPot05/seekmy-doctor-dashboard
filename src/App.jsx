@@ -1,25 +1,41 @@
-import DocCalendar from "./components/DocCalendar";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import KnowMore from "./components/KnowMore";
-import MedicalHistory from "./components/MedicalHistory";
-import Navbar from "./components/Navbar";
-import Slots from "./components/Slots";
+import { lazy, Suspense } from "react";
+const Navbar = lazy(() => import("./components/Navbar"));
+const Home = lazy(() => import('./components/Home'));
+const DocCalendar = lazy(() => import("./components/DocCalendar")) ;
+const Footer = lazy(() => import("./components/Footer"));
+const KnowMore = lazy(() => import("./components/KnowMore"));
+const MedicalHistory = lazy(() => import("./components/MedicalHistory"));
+const Slots = lazy(() => import("./components/Slots"));
+const MeetPatient = lazy(() => import("./components/MeetPatient"));
 
 function App() {
 
 	return <div className="App">
 		<Navbar/>
 		
-		<Home/>
+		<Suspense>
+			<Home/>
+		</Suspense>
 
-		<Slots/>
+		<Suspense>
+			<Slots/>
+		</Suspense>
 
-		<DocCalendar/>
+		<Suspense>
+			<DocCalendar/>
+		</Suspense>
 
-		<KnowMore/>
+		<Suspense>
+			<KnowMore/>
+		</Suspense>
 
-		<MedicalHistory/>
+		<Suspense>
+			<MedicalHistory/>
+		</Suspense>
+
+		<Suspense>
+			<MeetPatient/>
+		</Suspense>
 
 		<Footer/>
 

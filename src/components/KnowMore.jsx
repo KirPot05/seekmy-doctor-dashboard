@@ -1,10 +1,30 @@
 import select from "../assets/Select.png";
-import qr from '../assets/QP.png'
+import qr from '../assets/QP.png';
+import {motion, useAnimation} from 'framer-motion';
+import {container, descVariant, headingVariant, imgVariant, leftImgVariant} from '../animations';
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 function KnowMore() {
+
+    const control = useAnimation();
+	const [ref, inView] = useInView();
+
+	useEffect(() => {
+
+		if(inView){
+			control.start('animate');
+		} else{
+			control.start('initial');
+		}
+
+	}, [control, inView]);
+    
+
+
     return (
 
-        <div className="relative">
+        <motion.div variants={container} ref={ref} initial="initial" animate={control} className="relative">
             <div className="flex items-center justify-center">
                 <div className="absolute top-44 -z-10 rounded-full bg-gray-100" style={{height: "500px", width: "500px"}}>
                     <div className="absolute top-12 left-12 -z-10 rounded-full bg-green-200 opacity-40" style={{height: "400px", width: "400px"}}>
@@ -16,8 +36,8 @@ function KnowMore() {
             </div>
 
             <div className='p-20 mt-10'> 
-                <h2 className='text-center text-4xl font-bold'> Patients no longer have to wait in queue </h2>
-                <p className="text-center text-2xl">Hassle free checking</p>
+                <motion.h2 variants={headingVariant} className='text-center text-4xl font-bold'> Patients no longer have to wait in queue </motion.h2>
+                <motion.p variants={descVariant} className="text-center text-2xl">Hassle free checking</motion.p>
 
                 <div className="relative">
                     <div className='mt-20 w-1/2 h-96 rounded-lg mx-auto my-10 border-solid border-2 border-green-400'>
@@ -38,13 +58,13 @@ function KnowMore() {
                         </div>
                     </div> 
                     
-                    <img src={select} className="absolute h-3/4 top-4 right-32" alt="" />
-                    <img src={qr} className="object-contain h-3/4 absolute bottom-2 left-48" alt="" />
+                    <motion.img variants={imgVariant} src={select} className="absolute h-3/4 top-4 right-32" alt="" />
+                    <motion.img src={qr} variants={leftImgVariant} className="object-contain h-3/4 absolute bottom-2 left-44" alt="" />
                 </div> 
 
 
             </div>
-        </div>
+        </motion.div>
     )
 }
 

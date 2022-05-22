@@ -1,8 +1,26 @@
+import { motion, useAnimation } from 'framer-motion';
 import slots from '../assets/slots.png';
 import timer from '../assets/timer.png';
-
+import {container, headingVariant, imgVariant, leftImgVariant, rightInText} from '../animations';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 function Slots() {
+
+	const control = useAnimation();
+	const [ref, inView] = useInView();
+
+	useEffect(() => {
+
+		if(inView){
+			control.start('animate');
+		} else{
+			control.start('initial');
+		}
+
+	}, [control, inView]);
+
+
 	return (
 		<div className='relative overflow-hidden'>
 
@@ -23,23 +41,23 @@ function Slots() {
 				style={{ width: "400px", height: "400px", padding: "100px", borderWidth: "50px" }}
 			> 10</span>
 
-			<div>
-				<h2 className='text-5xl font-bold text-center mb-5'>Plan your slots</h2>
+			<motion.div ref={ref} variants={container} initial="initial" animate={control} className='relative'>
+				<motion.h2 variants={headingVariant} className='text-5xl font-bold text-center mb-5'>Plan your slots</motion.h2>
 
 				<div className='flex items-center justify-around space-x-3 my-14 mx-10'>
-					<div>
+					<motion.div variants={leftImgVariant}>
 						<img className='shadow-lg object-contain h-96 rounded-3xl' src={slots} alt="" />
-					</div>
-					<div className='space-y-10'>
-						<p className='w-96 text-3xl'> Increase the <span className='font-bold text-green-500'>Operational Efficiency</span> of your practice </p>
-						<p className='w-96 text-3xl'> Make your professional <span className='font-bold text-green-500'> Life Easier </span> </p>
-					</div>
+					</motion.div>
+					<motion.div className='space-y-10'>
+						<motion.p variants={rightInText} className='w-96 text-3xl'> Increase the <span className='font-bold text-green-500'>Operational Efficiency</span> of your practice </motion.p>
+						<motion.p variants={rightInText} className='w-96 text-3xl'> Make your professional <span className='font-bold text-green-500'> Life Easier </span> </motion.p>
+					</motion.div>
 
 				</div>
-				<div className='flex justify-center'>
+				<motion.div variants={imgVariant} className='flex justify-center'>
 					<img className='object-contain h-64' src={timer} alt="" />
-				</div>
-			</div>
+				</motion.div>
+			</motion.div>
 
 
 		</div>

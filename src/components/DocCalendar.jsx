@@ -2,36 +2,55 @@ import calendar from '../assets/calendar.png';
 import cal1 from '../assets/cal1.png';
 import cal2 from '../assets/cal2.png';
 import calHelp from '../assets/cal-help.png';
+import {motion, useAnimation} from 'framer-motion';
+import {container, descVariant, downUpImg, headingVariant} from '../animations';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 function DocCalendar() {
+
+    const control = useAnimation();
+	const [ref, inView] = useInView();
+
+	useEffect(() => {
+
+		if(inView){
+			control.start('animate');
+		} else{
+			control.start('initial');
+		}
+
+	}, [control, inView]);
+    
+
   return (
-    <div className='flex justify-center mt-10 px-20 pt-20 pb-44 space-x-20 bg-gray-300'>
+    <motion.div ref={ref} variants={container} initial="initial" animate={control} className='flex justify-center mt-10 px-20 pt-20 pb-44 space-x-20 bg-gray-300'>
 
         <div>
             <div className='text-center'>
-                <h2 className='text-4xl font-bold'>Need to change your plan?</h2>
-                <p className='text-lg'>Edit time sets easily and organize your work</p>
+                <motion.h2 variants={headingVariant} className='text-4xl font-bold'>Need to change your plan?</motion.h2>
+                <motion.p variants={descVariant} className='text-lg'>Edit time sets easily and organize your work</motion.p>
             </div>
 
-            <div className='flex flex-col items-center mt-5'>
+            <motion.div variants={downUpImg} className='flex flex-col items-center mt-5'>
                 <img src={calendar} alt="" />
                 <img src={cal1} className="-m-24" alt="" />
                 <img src={calHelp} className="-mt-32" alt="" />
-            </div>
+            </motion.div>
         </div>
 
         <div >
             <div className='text-center'>
-                <h2 className='text-4xl font-bold'>Every doctor deserves a holiday</h2>
+                <motion.h2 variants={headingVariant} className='text-4xl font-bold'>Every doctor deserves a holiday</motion.h2>
             </div>
 
-            <div className='flex flex-col items-center mt-10'>
+            <motion.div variants={downUpImg} className='flex flex-col items-center mt-10'>
                 <img src={calendar} alt="" />
                 <img src={cal2}   className="-m-28" alt="" />
-            </div>
+            </motion.div>
         </div>
 
-    </div>
+    </motion.div>
   )
 }
 
