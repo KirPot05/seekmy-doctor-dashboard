@@ -2,12 +2,12 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className='px-10 py-8 bg-slate-700 flex space-x-10 justify-around text-white'>
-        <div>
-            <img className='cursor-pointer' src="https://seekmy.health/Images/logo.svg" alt="" style={{flex: "0.2"}}/>
+    <div className='px-5 md:px-10 py-8 bg-slate-700 flex flex-col md:flex-row md:space-x-14 justify-around text-white'>
+        <div className='basis-1/5 mb-10'>
+            <img className='cursor-pointer' src="https://seekmy.health/Images/logo.svg" alt=""/>
         </div>
         
-        <div style={{flex: "0.8"}}>
+        <div className='md:basis-4/5'>
 
             <div className='flex justify-evenly pb-10 border-b-2 border-solid border-white' >
                 <div>

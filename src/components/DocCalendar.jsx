@@ -24,27 +24,27 @@ function DocCalendar() {
     
 
   return (
-    <motion.div ref={ref} variants={container} initial="initial" animate={control} className='flex justify-center mt-10 px-20 pt-20 pb-44 space-x-20 bg-gray-300'>
+    <motion.div ref={ref} variants={container} initial="initial" animate={control} className='flex flex-col space-y-28 md:space-y-2 md:flex-row justify-center mt-10 px-20 pt-20 pb-44 md:space-x-20 bg-gray-300'>
 
         <div>
             <div className='text-center'>
-                <motion.h2 variants={headingVariant} className='text-4xl font-bold'>Need to change your plan?</motion.h2>
+                <motion.h2 variants={headingVariant} className='text-2xl md:text-4xl font-bold'>Need to change your plan?</motion.h2>
                 <motion.p variants={descVariant} className='text-lg'>Edit time sets easily and organize your work</motion.p>
             </div>
 
             <motion.div variants={downUpImg} className='flex flex-col items-center mt-5'>
                 <img src={calendar} alt="" />
-                <img src={cal1} className="-m-24" alt="" />
-                <img src={calHelp} className="-mt-32" alt="" />
+                <img src={cal1} className="-m-20 md:-m-24" alt="" />
+                <img src={calHelp} className="-mt-20" alt="" />
             </motion.div>
         </div>
 
-        <div >
+        <div>
             <div className='text-center'>
-                <motion.h2 variants={headingVariant} className='text-4xl font-bold'>Every doctor deserves a holiday</motion.h2>
+                <motion.h2 variants={headingVariant} className='text-2xl md:text-4xl font-bold'>Every doctor deserves a holiday</motion.h2>
             </div>
 
-            <motion.div variants={downUpImg} className='flex flex-col items-center mt-10'>
+            <motion.div variants={downUpImg} className='flex flex-col items-center mt-5 md:mt-10'>
                 <img src={calendar} alt="" />
                 <img src={cal2}   className="-m-28" alt="" />
             </motion.div>
