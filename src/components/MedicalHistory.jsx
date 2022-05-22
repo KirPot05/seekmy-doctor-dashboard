@@ -1,7 +1,7 @@
 import pat1 from '../assets/pat1.png';
 import pat2 from '../assets/pat2.png';
 import { motion, useAnimation } from 'framer-motion';
-import { container, descVariant, downUpImg, headingVariant, imgVariant, leftImgVariant, leftInText } from '../animations';
+import { container, descVariant, downUpImg, headingVariant, imgVariant, leftInText } from '../animations';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 
